@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/recipesFragment">
+
+
+    <fragment
+        android:id="@+id/imageFullscreenFragment"
+        android:name="com.dvinov.recipes.screens.fullscreen_image.ImageFullscreenFragment"
+        android:label="fragment_image_fullscreen"
+        tools:layout="@layout/fragment_image_fullscreen" />
+    <fragment
+        android:id="@+id/recipesFragment"
+        android:name="com.dvinov.recipes.screens.recipes.RecipesFragment"
+        android:label="RecipesFragment" >
+        <action
+            android:id="@+id/action_recipesFragment_to_imageFullscreenFragment"
+            app:destination="@id/imageFullscreenFragment" >
+            <argument
+                android:name="url"
+                app:argType="string"
+                android:defaultValue="" />
+        </action>
+        <action
+            android:id="@+id/action_recipesFragment_to_addRecipeFragment"
+            app:destination="@id/addRecipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRecipeFragment"
+        android:name="com.dvinov.recipes.screens.add_recipe.AddRecipeFragment"
+        android:label="fragment_add_recipe"
+        tools:layout="@layout/fragment_add_recipe" />
+</navigation>
